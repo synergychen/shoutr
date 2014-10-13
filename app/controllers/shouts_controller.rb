@@ -5,6 +5,7 @@ class ShoutsController < ApplicationController
     @shout = Shout.new
     @shouts = Shout.all
     @users = User.all
+    @following_relationship = FollowingRelationship.new
   end
 
   def create
