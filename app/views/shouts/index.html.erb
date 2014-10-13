@@ -5,8 +5,20 @@
   <%= form.submit "Shout" %>
 <% end %>
 
-<ul>
-  <% @shouts.each do |shout| %>
-    <li><%= shout.body %></li>
-  <% end %>
-</ul>
+<div class="user-list">
+  <h4>Users</h4>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.email %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="feeds">
+  <h4>Your Feed</h4>
+  <ul>
+    <% @shouts.each do |shout| %>
+      <li><%= shout.body %></li>
+    <% end %>
+  </ul>
+</div>

@@ -4,6 +4,7 @@ class ShoutsController < ApplicationController
   def index
     @shout = Shout.new
     @shouts = Shout.all
+    @users = User.all
   end
 
   def create
