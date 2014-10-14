@@ -3,10 +3,10 @@
     <li>
     <% if current_user.following?(user) %>
       <%= user.email %>
-      <%= button_to "Unfollow", [user, @following_relationship], method: :delete %>
+      <%= button_to "Unfollow", [user, :following_relationship], method: :delete %>
     <% else %>
       <%= user.email %>
-      <%= button_to "Follow", [user, @following_relationship] %>
+      <%= button_to "Follow", [user, :following_relationship] %>
     <% end %>
     </li>
   <% end %>
