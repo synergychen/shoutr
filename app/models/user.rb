@@ -21,4 +21,9 @@ class User < ActiveRecord::Base
   def following?(other_user)
     followed_users.include?(other_user)
   end
+
+  def timeline
+    timeline_user_ids = followed_user_ids + [id]
+    Shout.where(user_id: timeline_user_ids).limit(20)
+  end
 end

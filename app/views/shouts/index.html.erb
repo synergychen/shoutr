@@ -5,34 +5,6 @@
   <%= form.submit "Shout" %>
 <% end %>
 
-<div class="user-followed">
-  <h4>People I am following</h4>
-  <ul>
-    <% @users_i_followed.each do |user| %>
-      <li>
-        <%= user.email %>
-      </li>
-    <% end %>
-  </ul>
-</div>
-
-<div class="user-unfollowed">
-  <h4>People I am not following</h4>
-  <ul>
-    <% @users_i_not_followed.each do |user| %>
-      <li>
-        <%= user.email %>
-        <%= button_to "Follow", [user, :following_relationship] %>
-      </li>
-    <% end %>
-  </ul>
-</div>
-
-<div class="feeds">
-  <h4>Your Feed</h4>
-  <ul>
-    <% @shouts.each do |shout| %>
-      <li><%= shout.body %></li>
-    <% end %>
-  </ul>
-</div>
+<% @timeline.each do |shout| %>
+  <p><%= shout.user.email %> : <%= shout.body %></p>
+<% end %>

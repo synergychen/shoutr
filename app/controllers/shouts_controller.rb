@@ -3,11 +3,7 @@ class ShoutsController < ApplicationController
 
   def index
     @shout = Shout.new
-    @shouts = Shout.all
-    @users = User.all
-    @following_relationship = FollowingRelationship.new
-    @users_i_followed = current_user.followed_users
-    @users_i_not_followed = User.where.not(id: current_user.followed_user_ids)
+    @timeline = current_user.timeline
   end
 
   def create
