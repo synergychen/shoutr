@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all
+    @following_relationship = FollowingRelationship.new
+  end
+
   private
 
   def user_params
