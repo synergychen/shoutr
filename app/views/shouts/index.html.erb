@@ -22,7 +22,7 @@
     <% @users_i_not_followed.each do |user| %>
       <li>
         <%= user.email %>
-        <%= button_to "Follow", [user, @following_relationship] %>
+        <%= button_to "Follow", [user, :following_relationship] %>
       </li>
     <% end %>
   </ul>
