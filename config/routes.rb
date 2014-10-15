@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :index, :show] do
     resource :following_relationship, only: [:create, :destroy]
   end
-  resources :shouts, only: [:create, :index]
+  resources :shouts, only: [:index]
+  resources :text_subjects, only: [:create]
 
   root "shouts#index"
 end
