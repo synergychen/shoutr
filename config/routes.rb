@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   resources :shouts, only: [:index]
   resources :text_subjects, only: [:create]
+  resources :image_subjects, only: [:create]
 
   root "shouts#index"
 end
