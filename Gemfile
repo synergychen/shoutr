@@ -12,3 +12,4 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'monban-generators'
 
 gem 'pry', group: :development
+gem 'kaminari'
