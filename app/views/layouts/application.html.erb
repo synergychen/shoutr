@@ -15,6 +15,10 @@
   </ul>
   </nav>
   <% if signed_in? %>
+    <%= form_tag :search, method: :get do %>
+      <%= text_field_tag :query %>
+      <%= submit_tag "Search" %>
+    <% end %>
     <%= current_user.email %>
     <%= button_to "Sign Out", session_path, method: :delete %>
   <% else %>

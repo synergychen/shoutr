@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :text_subjects, only: [:create]
   resources :image_subjects, only: [:create]
   resources :followers, only: [:index]
+  resource :search, only: [:show]
 
   root "shouts#index"
 end
