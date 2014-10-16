@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
+  validates :username, uniqueness: true
+
+  def to_param
+    username
+  end
 
   def follow(user_to_follow)
     followed_users << user_to_follow
