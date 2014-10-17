@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
     class_name: "FollowingRelationship"
   has_many :followers, through: :follower_relationships
 
+  has_many :favorites
+  has_many :favorite_shouts, through: :favorites, source: :shout
+
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :username, uniqueness: true
@@ -34,5 +37,17 @@ class User < ActiveRecord::Base
   def timeline
     timeline_user_ids = followed_user_ids + [id]
     Shout.where(user_id: timeline_user_ids).limit(20)
+  end
+
+  def like?(shout)
+    favorite_shouts.include?(shout)
+  end
+
+  def like(shout)
+    favorite_shouts << shout
+  end
+
+  def unlike(shout)
+    favorite_shouts.destroy(shout)
   end
 end

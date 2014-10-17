@@ -1,1 +1,6 @@
 <%= sanitize highlight(text_subject.body) %>
+<% if current_user.like?(text_subject.shout) %>
+  <%= button_to "Unlike", shout_favorite_path(text_subject.shout), method: :delete %>
+<% else %>
+  <%= button_to "Like", shout_favorite_path(text_subject.shout) %>
+<% end %>
