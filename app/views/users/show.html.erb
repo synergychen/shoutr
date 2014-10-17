@@ -6,3 +6,12 @@
 
 <%= render @followed_users %>
 
+<p><%= @user.email %>'s favorite shouts </p>
+
+<ul>
+  <% @favorite_shouts.each do |shout| %>
+    <li><%= render shout.subject %></li>
+  <% end %>
+</ul>
+
+

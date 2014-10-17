@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(username: params[:username])
     @followed_users = @user.followed_users
+    @favorite_shouts = @user.favorite_shouts
   end
 
   private
